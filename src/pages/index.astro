@@ -19,6 +19,34 @@ const games = await Promise.all(
 games.sort((a, b) => {
   return (b.data.my_rating ?? 0) - (a.data.my_rating ?? 0);
 });
+
+const baseUrl = import.meta.env.BASE_URL;
+
+function formatDateRu(value) {
+  if (!value) return "";
+
+  const date = value instanceof Date ? value : new Date(value);
+
+  if (Number.isNaN(date.getTime())) {
+    return String(value);
+  }
+
+  return new Intl.DateTimeFormat("ru-RU", {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+  }).format(date);
+}
+
+function getImageSrc(image) {
+  if (!image) return "";
+
+  if (/^(https?:)?\/\//.test(image) || image.startsWith("data:")) {
+    return image;
+  }
+
+  return `${baseUrl}${String(image).replace(/^\/+/, "")}`;
+}
 ---
 
 <html lang="ru">
@@ -60,6 +88,11 @@ games.sort((a, b) => {
   margin: 0 0 var(--space-md);
   border-radius: var(--radius-md);
   background: var(--bg);
+}
+
+.card-image:not([src]),
+.card-image[src=""] {
+  display: none;
 }
       [data-theme="dark"] {
         --bg: #12141a;
@@ -383,25 +416,95 @@ games.sort((a, b) => {
       }
 
       @media (max-width: 520px) {
+        :root {
+          --space-lg: 1rem;
+          --space-xl: 1.25rem;
+        }
+
+        .site-header {
+          position: static;
+        }
+
+        .header-inner {
+          padding: 0.75rem 0.8rem;
+        }
+
         .toolbar {
-          flex-direction: column;
+          display: grid;
+          grid-template-columns: minmax(0, 1fr) 2.5rem;
+          gap: 0.55rem;
           align-items: stretch;
         }
 
+        .search-wrap,
+        .count-pill {
+          grid-column: 1 / -1;
+        }
+
+        .search-wrap input,
+        .sort-wrap select {
+          min-height: 2.75rem;
+          font-size: 1rem;
+          border-radius: 0.9rem;
+        }
+
         .sort-wrap {
+          min-width: 0;
           width: 100%;
         }
 
         .btn-icon {
+          width: 2.75rem;
+          height: 2.75rem;
+        }
+
+        .count-pill {
+          justify-content: center;
           width: 100%;
         }
 
         main {
-          padding: var(--space-lg) var(--space-md);
+          padding: 1rem 0.8rem;
+        }
+
+        .cards {
+          gap: 1rem;
         }
 
         .card {
-          padding: var(--space-md);
+          padding: 1rem;
+          border-radius: 1.25rem;
+        }
+
+        .card-title {
+          font-size: 1.45rem;
+        }
+
+        .meta-row {
+          gap: 0.45rem;
+        }
+
+        .badge,
+        .meta-chip {
+          font-size: 0.95rem;
+        }
+
+        .review-stack {
+          font-size: 1rem;
+        }
+
+        .review-stack p {
+          text-align: left;
+          text-indent: 0;
+        }
+
+        .stats-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          font-size: 0.9rem;
+        }
+
+        .card-image {
+          max-height: 14rem;
         }
 
         .page-title {
@@ -461,6 +564,8 @@ games.sort((a, b) => {
             const date = game.data.date_added
               ? game.data.date_added.toISOString().slice(0, 10)
               : "";
+            const displayDate = formatDateRu(game.data.date_added);
+            const imageSrc = getImageSrc(game.data.image);
             const Content = game.Content;
 
             return (
@@ -472,17 +577,17 @@ games.sort((a, b) => {
                 data-date={date}
               >
 {
-  game.data.image && (
+  imageSrc && (
     <a
       class="image-link"
-      href={game.data.image}
+      href={imageSrc}
       target="_blank"
       rel="noreferrer"
       aria-label={`Открыть обложку игры ${title}`}
     >
       <img
         class="card-image"
-        src={game.data.image}
+        src={imageSrc}
         alt={`Обложка игры ${title}`}
         loading="lazy"
       />
@@ -506,8 +611,8 @@ games.sort((a, b) => {
                     </span>
                   )}
 
-                  {game.data.year !== undefined && (
-                    <span class="meta-chip">Год: {game.data.year}</span>
+                  {displayDate && (
+                    <span class="meta-chip">Добавлено: {displayDate}</span>
                   )}
 
                   {game.data.plays !== undefined && (
@@ -519,20 +624,11 @@ games.sort((a, b) => {
                   <Content />
                 </article>
 
-                <button type="button" class="btn-text details-toggle">
-                  Подробнее
-                </button>
-
-                <div class="details-block" hidden>
+                <div class="details-block">
                   <dl class="stats-grid">
                     <div>
-                      <dt>ID BGG</dt>
-                      <dd>{game.data.bgg_id}</dd>
-                    </div>
-
-                    <div>
-                      <dt>Дата добавления</dt>
-                      <dd>{date || "—"}</dd>
+                      <dt>Год</dt>
+                      <dd>{game.data.year ?? "—"}</dd>
                     </div>
 
                     <div>
@@ -548,6 +644,11 @@ games.sort((a, b) => {
                     <div>
                       <dt>Средний рейтинг</dt>
                       <dd>{game.data.average_rating ?? "—"}</dd>
+                    </div>
+
+                    <div>
+                      <dt>Дата добавления</dt>
+                      <dd>{displayDate || "—"}</dd>
                     </div>
 
                     <div>
@@ -643,22 +744,6 @@ games.sort((a, b) => {
 
         localStorage.setItem("reviews-theme", next);
         applyTheme(next);
-      });
-
-      document.querySelectorAll(".details-toggle").forEach((button) => {
-        button.addEventListener("click", () => {
-          const card = button.closest(".card");
-          const details = card.querySelector(".details-block");
-          const isHidden = details.hasAttribute("hidden");
-
-          if (isHidden) {
-            details.removeAttribute("hidden");
-            button.textContent = "Скрыть";
-          } else {
-            details.setAttribute("hidden", "");
-            button.textContent = "Подробнее";
-          }
-        });
       });
 
       function sortCards(list, key) {
