@@ -1,0 +1,77 @@
+---
+import { getCollection, render } from "astro:content";
+
+export async function getStaticPaths() {
+  const games = await getCollection("games");
+
+  return games.map((game) => {
+    const slug = game.id
+      .replace(/\.md$/, "")
+      .split("/")
+      .pop();
+
+    return {
+      params: { slug },
+    };
+  });
+}
+
+const { slug } = Astro.params;
+
+const games = await getCollection("games");
+
+const game = games.find((entry) => {
+  return (
+    entry.id === slug ||
+    entry.id === `${slug}.md` ||
+    entry.id.endsWith(`/${slug}`) ||
+    entry.id.endsWith(`/${slug}.md`)
+  );
+});
+
+if (!game) {
+  throw new Error(
+    `Игра не найдена для slug: ${slug}. Найденные файлы: ${games
+      .map((entry) => entry.id)
+      .join(", ")}`
+  );
+}
+
+const { Content } = await render(game);
+---
+
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <title>{game.data.title}</title>
+  </head>
+
+  <body>
+    <main>
+      <a href="/">← На главную</a>
+
+      <h1>{game.data.title}</h1>
+
+      <ul>
+        <li>Моя оценка: {game.data.my_rating}</li>
+        <li>Год: {game.data.year}</li>
+        <li>Средний рейтинг BGG: {game.data.average_rating}</li>
+        <li>Кол-во партий: {game.data.plays}</li>
+      </ul>
+
+      {
+        game.data.bgg_url && (
+          <p>
+            <a href={game.data.bgg_url} target="_blank">
+              Страница на BGG
+            </a>
+          </p>
+        )
+      }
+
+      <article>
+        <Content />
+      </article>
+    </main>
+  </body>
+</html>

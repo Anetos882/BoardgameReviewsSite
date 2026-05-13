@@ -1,0 +1,719 @@
+---
+import { getCollection, render } from "astro:content";
+
+const entries = await getCollection("games");
+
+const games = await Promise.all(
+  entries.map(async (game) => {
+    const { Content } = await render(game);
+
+    return {
+      slug: game.id.replace(/\.md$/, "").split("/").pop(),
+      data: game.data,
+      Content,
+      body: game.body,
+    };
+  })
+);
+
+games.sort((a, b) => {
+  return (b.data.my_rating ?? 0) - (a.data.my_rating ?? 0);
+});
+---
+
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Отзывы о настольных играх</title>
+
+    <style>
+      :root {
+        --bg: #f4f5f7;
+        --surface: #ffffff;
+        --text: #1a1d24;
+        --text-muted: #5c6370;
+        --border: #e2e5eb;
+        --accent: #2563eb;
+        --accent-hover: #1d4ed8;
+        --accent-muted: rgba(37, 99, 235, 0.12);
+        --shadow: 0 1px 2px rgba(15, 23, 42, 0.06),
+          0 4px 12px rgba(15, 23, 42, 0.06);
+        --shadow-hover: 0 2px 4px rgba(15, 23, 42, 0.06),
+          0 8px 24px rgba(15, 23, 42, 0.08);
+        --radius-sm: 8px;
+        --radius-md: 12px;
+        --radius-lg: 16px;
+        --space-xs: 0.25rem;
+        --space-sm: 0.5rem;
+        --space-md: 1rem;
+        --space-lg: 1.5rem;
+        --space-xl: 2rem;
+        --content-max: 42rem;
+        --font: "Segoe UI", system-ui, -apple-system, sans-serif;
+      }
+.card-image {
+  width: 100%;
+  max-height: 18rem;
+  object-fit: cover;
+  display: block;
+  margin: 0 0 var(--space-md);
+  border-radius: var(--radius-md);
+  background: var(--bg);
+}
+      [data-theme="dark"] {
+        --bg: #12141a;
+        --surface: #1c1f28;
+        --text: #e8eaef;
+        --text-muted: #9aa3b2;
+        --border: #2a2f3d;
+        --accent: #3b82f6;
+        --accent-hover: #60a5fa;
+        --accent-muted: rgba(59, 130, 246, 0.18);
+        --shadow: 0 1px 2px rgba(0, 0, 0, 0.35),
+          0 4px 16px rgba(0, 0, 0, 0.25);
+        --shadow-hover: 0 2px 6px rgba(0, 0, 0, 0.4),
+          0 10px 28px rgba(0, 0, 0, 0.3);
+      }
+
+      @media (prefers-color-scheme: dark) {
+        :root:not([data-theme="light"]) {
+          --bg: #12141a;
+          --surface: #1c1f28;
+          --text: #e8eaef;
+          --text-muted: #9aa3b2;
+          --border: #2a2f3d;
+          --accent: #3b82f6;
+          --accent-hover: #60a5fa;
+          --accent-muted: rgba(59, 130, 246, 0.18);
+          --shadow: 0 1px 2px rgba(0, 0, 0, 0.35),
+            0 4px 16px rgba(0, 0, 0, 0.25);
+          --shadow-hover: 0 2px 6px rgba(0, 0, 0, 0.4),
+            0 10px 28px rgba(0, 0, 0, 0.3);
+        }
+      }
+
+      *, *::before, *::after {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: var(--font);
+        font-size: 1rem;
+        line-height: 1.55;
+        color: var(--text);
+        background: var(--bg);
+        -webkit-font-smoothing: antialiased;
+      }
+
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        background: color-mix(in srgb, var(--bg) 88%, transparent);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--border);
+      }
+
+      .header-inner {
+        max-width: calc(var(--content-max) + 2 * var(--space-xl));
+        margin: 0 auto;
+        padding: var(--space-sm) var(--space-lg);
+      }
+
+      .toolbar {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: var(--space-sm);
+      }
+
+      .search-wrap {
+        flex: 1 1 12rem;
+        min-width: 10rem;
+      }
+
+      .search-wrap input,
+      .sort-wrap select {
+        width: 100%;
+        min-height: 2rem;
+        padding: 0.35rem 0.6rem;
+        font-size: 0.875rem;
+        border: 1px solid var(--border);
+        border-radius: var(--radius-md);
+        background: var(--surface);
+        color: var(--text);
+        font: inherit;
+      }
+
+      .sort-wrap {
+        flex: 0 0 auto;
+      }
+
+      .btn-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 2rem;
+        height: 2rem;
+        border: 1px solid var(--border);
+        border-radius: var(--radius-md);
+        background: var(--surface);
+        color: var(--text);
+        cursor: pointer;
+      }
+
+      main {
+        max-width: calc(var(--content-max) + 2 * var(--space-xl));
+        margin: 0 auto;
+        padding: var(--space-xl) var(--space-lg);
+      }
+
+      .page-title {
+        margin: 0 0 var(--space-sm);
+        font-size: 1.6rem;
+        line-height: 1.2;
+        letter-spacing: -0.03em;
+      }
+
+      .page-subtitle {
+        margin: 0 0 var(--space-lg);
+        color: var(--text-muted);
+      }
+
+      .count-pill {
+        display: inline-flex;
+        align-items: center;
+        min-height: 2rem;
+        margin: 0;
+        padding: var(--space-xs) var(--space-sm);
+        font-size: 0.8125rem;
+        white-space: nowrap;
+        border-radius: 999px;
+        background: var(--accent-muted);
+        color: var(--accent);
+        font-weight: 600;
+      }
+
+      .image-link {
+        display: block;
+        margin: 0 0 var(--space-md);
+        border-radius: var(--radius-md);
+        cursor: zoom-in;
+      }
+
+      .image-link:focus-visible {
+        outline: 3px solid var(--accent);
+        outline-offset: 3px;
+      }
+
+      .cards {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-lg);
+      }
+
+      .card {
+        background: var(--surface);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow);
+        padding: var(--space-lg);
+        border: 1px solid transparent;
+      }
+
+      .card:hover {
+        box-shadow: var(--shadow-hover);
+      }
+
+      .card-title {
+        margin: 0 0 var(--space-xs);
+        font-size: 1.25rem;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        line-height: 1.3;
+      }
+
+      .card-sub {
+        margin: 0 0 var(--space-md);
+        font-size: 0.9rem;
+        color: var(--text-muted);
+      }
+
+      .meta-row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: var(--space-sm);
+        margin-bottom: var(--space-md);
+      }
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        padding: var(--space-xs) var(--space-sm);
+        font-size: 0.8125rem;
+        font-weight: 700;
+        border-radius: 999px;
+        background: var(--accent-muted);
+        color: var(--accent);
+      }
+
+      .meta-chip {
+        font-size: 0.8125rem;
+        color: var(--text-muted);
+        padding: var(--space-xs) var(--space-sm);
+        border-radius: var(--radius-sm);
+        background: color-mix(in srgb, var(--bg) 65%, var(--surface));
+      }
+
+      .review-stack {
+        margin: 0 0 var(--space-md);
+        max-width: var(--content-max);
+        font-size: 0.95rem;
+      }
+
+      .review-stack p {
+        margin: 0 0 0.7em;
+        text-align: justify;
+        text-indent: 1.25em;
+        hyphens: auto;
+        word-break: break-word;
+      }
+
+      .review-stack p:last-child {
+        margin-bottom: 0;
+      }
+
+      .btn-text {
+        border: none;
+        background: none;
+        color: var(--accent);
+        font: inherit;
+        font-weight: 700;
+        cursor: pointer;
+        padding: var(--space-xs) 0;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+
+      .details-block {
+        margin-top: var(--space-md);
+        padding-top: var(--space-md);
+        border-top: 1px solid var(--border);
+      }
+
+      .details-block[hidden] {
+        display: none !important;
+      }
+
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+        gap: var(--space-sm) var(--space-md);
+        margin: 0 0 var(--space-md);
+        padding: 0;
+        font-size: 0.8125rem;
+      }
+
+      .stats-grid div {
+        min-width: 0;
+      }
+
+      .stats-grid dt {
+        margin: 0;
+        color: var(--text-muted);
+        font-weight: 500;
+      }
+
+      .stats-grid dd {
+        margin: var(--space-xs) 0 0;
+        font-weight: 700;
+      }
+
+      .card-link {
+        color: var(--accent);
+        font-weight: 700;
+        font-size: 0.875rem;
+        text-decoration: none;
+      }
+
+      .card-link:hover {
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+
+      .empty-state {
+        text-align: center;
+        padding: var(--space-xl);
+        color: var(--text-muted);
+        border-radius: var(--radius-lg);
+        background: var(--surface);
+        box-shadow: var(--shadow);
+      }
+
+      .site-footer {
+        max-width: calc(var(--content-max) + 2 * var(--space-xl));
+        margin: 0 auto;
+        padding: 0 var(--space-lg) var(--space-xl);
+      }
+
+      .footer-card {
+        background: var(--surface);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow);
+        padding: var(--space-md) var(--space-lg);
+        border: 1px solid var(--border);
+      }
+
+      .footer-scale-title {
+        margin: 0;
+        font-size: 1rem;
+        font-weight: 700;
+      }
+
+      .scale-list {
+        margin: var(--space-md) 0 0;
+        padding-left: 1.25rem;
+        color: var(--text-muted);
+        font-size: 0.875rem;
+      }
+
+      @media (max-width: 520px) {
+        .toolbar {
+          flex-direction: column;
+          align-items: stretch;
+        }
+
+        .sort-wrap {
+          width: 100%;
+        }
+
+        .btn-icon {
+          width: 100%;
+        }
+
+        main {
+          padding: var(--space-lg) var(--space-md);
+        }
+
+        .card {
+          padding: var(--space-md);
+        }
+
+        .page-title {
+          font-size: 1.4rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="toolbar">
+          <div class="search-wrap">
+            <input
+              type="search"
+              id="q"
+              placeholder="Поиск по названию или локализации…"
+              autocomplete="off"
+            />
+          </div>
+
+          <p class="count-pill" id="count" aria-live="polite">
+            Всего записей: {games.length}
+          </p>
+
+          <div class="sort-wrap">
+            <select id="sort">
+              <option value="title-asc">Название А–Я</option>
+              <option value="title-desc">Название Я–А</option>
+              <option value="rating-desc" selected>Моя оценка: выше</option>
+              <option value="rating-asc">Моя оценка: ниже</option>
+              <option value="date-desc">Дата добавления: новые</option>
+              <option value="date-asc">Дата добавления: старые</option>
+            </select>
+          </div>
+
+          <button
+            type="button"
+            class="btn-icon"
+            id="theme-toggle"
+            title="Тема оформления"
+            aria-label="Переключить тему"
+          >
+            ◐
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <ul class="cards" id="cards">
+        {
+          games.map((game) => {
+            const title = game.data.title;
+            const localization = game.data.localization;
+            const date = game.data.date_added
+              ? game.data.date_added.toISOString().slice(0, 10)
+              : "";
+            const Content = game.Content;
+
+            return (
+              <li
+                class="card"
+                data-title={title}
+                data-localization={localization ?? ""}
+                data-rating={game.data.my_rating ?? ""}
+                data-date={date}
+              >
+{
+  game.data.image && (
+    <a
+      class="image-link"
+      href={game.data.image}
+      target="_blank"
+      rel="noreferrer"
+      aria-label={`Открыть обложку игры ${title}`}
+    >
+      <img
+        class="card-image"
+        src={game.data.image}
+        alt={`Обложка игры ${title}`}
+        loading="lazy"
+      />
+    </a>
+  )
+}
+
+<div class="card-head">
+  <h2 class="card-title">{title}</h2>
+  {localization && <p class="card-sub">{localization}</p>}
+</div>
+
+                <div class="meta-row">
+                  {game.data.my_rating !== undefined && (
+                    <span class="badge">Оценка: {game.data.my_rating}</span>
+                  )}
+
+                  {game.data.average_rating !== undefined && (
+                    <span class="meta-chip">
+                      Средний BGG: {game.data.average_rating}
+                    </span>
+                  )}
+
+                  {game.data.year !== undefined && (
+                    <span class="meta-chip">Год: {game.data.year}</span>
+                  )}
+
+                  {game.data.plays !== undefined && (
+                    <span class="meta-chip">Партий: {game.data.plays}</span>
+                  )}
+                </div>
+
+                <article class="review-stack">
+                  <Content />
+                </article>
+
+                <button type="button" class="btn-text details-toggle">
+                  Подробнее
+                </button>
+
+                <div class="details-block" hidden>
+                  <dl class="stats-grid">
+                    <div>
+                      <dt>ID BGG</dt>
+                      <dd>{game.data.bgg_id}</dd>
+                    </div>
+
+                    <div>
+                      <dt>Дата добавления</dt>
+                      <dd>{date || "—"}</dd>
+                    </div>
+
+                    <div>
+                      <dt>Ранг BGG</dt>
+                      <dd>{game.data.bgg_rank ?? "—"}</dd>
+                    </div>
+
+                    <div>
+                      <dt>Взвешенный рейтинг</dt>
+                      <dd>{game.data.bayes_rating ?? "—"}</dd>
+                    </div>
+
+                    <div>
+                      <dt>Средний рейтинг</dt>
+                      <dd>{game.data.average_rating ?? "—"}</dd>
+                    </div>
+
+                    <div>
+                      <dt>Кол-во оценок</dt>
+                      <dd>{game.data.users_rated ?? "—"}</dd>
+                    </div>
+                  </dl>
+
+                  {
+                    game.data.bgg_url && (
+                      <a
+                        class="card-link"
+                        href={game.data.bgg_url}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        Открыть на BGG →
+                      </a>
+                    )
+                  }
+                </div>
+              </li>
+            );
+          })
+        }
+      </ul>
+
+      <p class="empty-state" id="empty" hidden>
+        Ничего не найдено — попробуйте изменить запрос или сортировку.
+      </p>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-card">
+        <h2 class="footer-scale-title">Шкала оценок BGG</h2>
+        <ul class="scale-list">
+          <li>10 — Выдающаяся игра, всегда хочу играть</li>
+          <li>9 — Отличная игра, очень хочу сыграть снова</li>
+          <li>8 — Очень хорошая игра, с удовольствием рекомендую</li>
+          <li>7 — Хорошая игра, обычно готов сыграть</li>
+          <li>6 — Нормальная игра, сыграю по настроению</li>
+          <li>5 — Средняя игра, слегка скучная или слегка интересная</li>
+          <li>4 — Слабая игра, но теоретически могу сыграть ещё раз</li>
+          <li>3 — Плохая игра, скорее всего больше не сыграю</li>
+          <li>2 — Очень плохая игра, играть снова не буду</li>
+          <li>1 — Ужасная игра, крайне негативное впечатление</li>
+        </ul>
+      </div>
+    </footer>
+
+    <script>
+      const cardsEl = document.getElementById("cards");
+      const qEl = document.getElementById("q");
+      const sortEl = document.getElementById("sort");
+      const countEl = document.getElementById("count");
+      const emptyEl = document.getElementById("empty");
+      const themeBtn = document.getElementById("theme-toggle");
+
+      const cards = Array.from(document.querySelectorAll(".card"));
+      const total = cards.length;
+
+      function norm(value) {
+        return String(value ?? "").toLowerCase();
+      }
+
+      function getNumber(value) {
+        const n = parseFloat(value);
+        return Number.isNaN(n) ? 0 : n;
+      }
+
+      function getDate(value) {
+        if (!value) return 0;
+        const t = Date.parse(value);
+        return Number.isNaN(t) ? 0 : t;
+      }
+
+      function applyTheme(theme) {
+        if (theme === "light" || theme === "dark") {
+          document.documentElement.setAttribute("data-theme", theme);
+        } else {
+          document.documentElement.removeAttribute("data-theme");
+        }
+      }
+
+      const savedTheme = localStorage.getItem("reviews-theme");
+      applyTheme(savedTheme);
+
+      themeBtn.addEventListener("click", () => {
+        const current = document.documentElement.getAttribute("data-theme");
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        const isDark = current === "dark" || (!current && prefersDark);
+        const next = isDark ? "light" : "dark";
+
+        localStorage.setItem("reviews-theme", next);
+        applyTheme(next);
+      });
+
+      document.querySelectorAll(".details-toggle").forEach((button) => {
+        button.addEventListener("click", () => {
+          const card = button.closest(".card");
+          const details = card.querySelector(".details-block");
+          const isHidden = details.hasAttribute("hidden");
+
+          if (isHidden) {
+            details.removeAttribute("hidden");
+            button.textContent = "Скрыть";
+          } else {
+            details.setAttribute("hidden", "");
+            button.textContent = "Подробнее";
+          }
+        });
+      });
+
+      function sortCards(list, key) {
+        return list.slice().sort((a, b) => {
+          switch (key) {
+            case "title-asc":
+              return a.dataset.title.localeCompare(b.dataset.title, "ru");
+            case "title-desc":
+              return b.dataset.title.localeCompare(a.dataset.title, "ru");
+            case "rating-desc":
+              return getNumber(b.dataset.rating) - getNumber(a.dataset.rating);
+            case "rating-asc":
+              return getNumber(a.dataset.rating) - getNumber(b.dataset.rating);
+            case "date-desc":
+              return getDate(b.dataset.date) - getDate(a.dataset.date);
+            case "date-asc":
+              return getDate(a.dataset.date) - getDate(b.dataset.date);
+            default:
+              return 0;
+          }
+        });
+      }
+
+      function filterCards() {
+        const q = norm(qEl.value.trim());
+
+        let filtered = cards.filter((card) => {
+          if (!q) return true;
+
+          return (
+            norm(card.dataset.title).includes(q) ||
+            norm(card.dataset.localization).includes(q)
+          );
+        });
+
+        filtered = sortCards(filtered, sortEl.value);
+
+        cardsEl.innerHTML = "";
+
+        filtered.forEach((card) => {
+          cardsEl.appendChild(card);
+        });
+
+        countEl.textContent =
+          filtered.length === total
+            ? `Всего записей: ${total}`
+            : `Показано: ${filtered.length} из ${total}`;
+
+        emptyEl.hidden = filtered.length > 0;
+      }
+
+      qEl.addEventListener("input", filterCards);
+      sortEl.addEventListener("change", filterCards);
+
+      filterCards();
+    </script>
+  </body>
+</html>
