@@ -5,7 +5,7 @@ localization: "Пылающее сердце"
 date_added: 2026-03-12
 plays: 1
 my_rating: 4
-image:
+image: "images/games/emberheart.jpg"
 title: "Emberheart"
 bgg_rank: 2762
 average_rating: 7.4
