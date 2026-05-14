@@ -5,7 +5,7 @@ localization:
 date_added: 2025-06-25
 plays: 1
 my_rating: 8
-image:
+image: "images/games/men-nefer.jpg"
 title: "Men-Nefer"
 bgg_rank: 561
 average_rating: 8.2
