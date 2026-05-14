@@ -5,7 +5,7 @@ localization: "Столкновение Цивилизаций: Монумент
 date_added: 2026-03-08
 plays: 1
 my_rating: 8.5
-image:
+image: "images/games/clash-of-cultures-monumental-edition.jpg"
 title: "Clash of Cultures: Monumental Edition"
 bgg_rank: 232
 average_rating: 8.3
