@@ -1,4 +1,4 @@
----
+
 bgg_url: "https://boardgamegeek.com/boardgame/346703/7-wonders-architects"
 bgg_id: 346703
 localization: "7 чудес: Архитекторы"
