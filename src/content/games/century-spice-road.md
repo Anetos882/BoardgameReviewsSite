@@ -5,7 +5,7 @@ localization: "Century: Пряности"
 date_added: 2026-02-12
 plays: 1
 my_rating: 5
-image:
+image: "images/games/century-spice-road.jpg"
 title: "Century: Spice Road"
 bgg_rank: 385
 average_rating: 7.3
