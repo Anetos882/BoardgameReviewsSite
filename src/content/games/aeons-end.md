@@ -5,7 +5,7 @@ localization: "Конец вечности"
 date_added: 2025-05-21
 plays: 1
 my_rating: 7
-image:
+image: "images/games/aeons-end.jpg"
 title: "Aeon's End"
 bgg_rank: 108
 average_rating: 7.9
