@@ -5,7 +5,7 @@ localization:
 date_added: 2025-05-15
 plays: 1
 my_rating: 4
-image:
+image: "images/games/deep-rock-galactic-the-board-game.jpg"
 title: "Deep Rock Galactic: The Board Game"
 bgg_rank: 1311
 average_rating: 8.1
