@@ -5,7 +5,7 @@ localization:
 date_added: 2025-08-31
 plays: 1
 my_rating: 9
-image:
+image: "images/games/dwellings-of-eldervale.jpg"
 title: "Dwellings of Eldervale"
 bgg_rank: 128
 average_rating: 8.1
