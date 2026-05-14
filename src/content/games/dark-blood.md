@@ -5,7 +5,7 @@ localization:
 date_added: 2026-02-05
 plays: 1
 my_rating: 8
-image:
+image: "images/games/dark-blood.jpg"
 title: "Dark Blood"
 bgg_rank: 6551
 average_rating: 7.8
