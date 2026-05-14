@@ -5,7 +5,7 @@ localization:
 date_added: 2025-05-22
 plays: 1
 my_rating: 8
-image:
+image: "images/games/nova-era.jpg"
 title: "Nova Era"
 bgg_rank: 5149
 average_rating: 6.8
