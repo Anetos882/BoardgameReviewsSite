@@ -5,7 +5,7 @@ localization:
 date_added: 2025-07-12
 plays: 1
 my_rating: 6
-image:
+image: "images/games/runewars.jpg"
 title: "Runewars"
 bgg_rank: 411
 average_rating: 7.6
