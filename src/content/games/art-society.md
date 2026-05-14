@@ -5,7 +5,7 @@ localization: "Моя галерея"
 date_added: 2026-03-12
 plays: 1
 my_rating: 7
-image:
+image: "images/games/art-society.jpg"
 title: "Art Society"
 bgg_rank: 1028
 average_rating: 7.5
