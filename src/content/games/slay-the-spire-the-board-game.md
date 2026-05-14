@@ -5,7 +5,7 @@ localization: "Slay the Spire: Настольная игра"
 date_added: 2026-01-29
 plays: 1
 my_rating: 7.5
-image:
+image: "images/games/slay-the-spire-the-board-game.jpg"
 title: "Slay the Spire: The Board Game"
 bgg_rank: 17
 average_rating: 8.6
