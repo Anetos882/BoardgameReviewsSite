@@ -5,7 +5,7 @@ localization: "Дорога ярости: Вендетта"
 date_added: 2025-05-29
 plays: 1
 my_rating: 7.5
-image:
+image: "images/games/thunder-road-vendetta.jpg"
 title: "Thunder Road: Vendetta"
 bgg_rank: 229
 average_rating: 7.9
