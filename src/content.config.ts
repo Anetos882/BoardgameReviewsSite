@@ -11,14 +11,14 @@ const games = defineCollection({
     plays: z.number().optional(),
     my_rating: z.number().optional(),
 
-    image: z.string().nullable().optional(),
     title: z.string().nullable().optional(),
+    image: z.string().nullable().optional(),
 
-    year: z.coerce.number().nullable().optional(),
-    bgg_rank: z.coerce.number().nullable().optional(),
-    bayes_rating: z.coerce.number().nullable().optional(),
-    average_rating: z.coerce.number().nullable().optional(),
-    users_rated: z.coerce.number().nullable().optional(),
+    year: z.number().nullable().optional(),
+    bgg_rank: z.number().nullable().optional(),
+    bayes_rating: z.number().nullable().optional(),
+    average_rating: z.number().nullable().optional(),
+    users_rated: z.number().nullable().optional(),
   }),
 });
 
