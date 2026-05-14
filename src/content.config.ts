@@ -1,12 +1,16 @@
 import { defineCollection, z } from "astro:content";
+import { glob } from "astro/loaders";
 
 const games = defineCollection({
-  type: "content",
+  loader: glob({
+    base: "./src/content/games",
+    pattern: "**/*.{md,mdx}",
+  }),
   schema: z.object({
     bgg_url: z.string().optional(),
     bgg_id: z.number().optional(),
 
-    localization: z.string().optional(),
+    localization: z.string().nullable().optional(),
     date_added: z.coerce.date().optional(),
     plays: z.number().optional(),
     my_rating: z.number().optional(),
