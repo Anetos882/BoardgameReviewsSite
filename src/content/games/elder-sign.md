@@ -5,7 +5,7 @@ localization: "Знак Древних"
 date_added: 2026-03-12
 plays: 1
 my_rating: 5
-image:
+image: "images/games/elder-sign.jpg"
 title: "Elder Sign"
 bgg_rank: 794
 average_rating: 7.0
