@@ -6,11 +6,11 @@ date_added: 2025-04-15
 plays: 1
 my_rating: 1
 image:
-title:
-year:
-bgg_rank:
-bayes_rating:
-average_rating:
-users_rated:
+title: "Trial by Trolley"
+bgg_rank: 5085
+average_rating: 6.0
+year: 2020
+bayes_rating: 5.8
+users_rated: 4514
 ---
 Задумка с моральной дилеммой и чёрным юмором выглядит надуманной, шутки быстро надоедают, и веселье от игры отсутствует

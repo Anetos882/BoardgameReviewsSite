@@ -6,11 +6,11 @@ date_added: 2025-11-21
 plays: 1
 my_rating: 4
 image:
-title:
-year:
-bgg_rank:
-bayes_rating:
-average_rating:
-users_rated:
+title: "Courtisans"
+bgg_rank: 1076
+average_rating: 7.3
+year: 2024
+bayes_rating: 6.6
+users_rated: 4442
 ---
 Простая и непримечательная игра, в которой, на мой взгляд, случайность влияет на итоговый результат сильнее, чем осознанная тактика

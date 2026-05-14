@@ -6,12 +6,12 @@ date_added: 2026-05-07
 plays: 1
 my_rating: 5
 image:
-title:
-year:
-bgg_rank:
-bayes_rating:
-average_rating:
-users_rated:
+title: "Nanty Narking"
+bgg_rank: 1534
+average_rating: 7.5
+year: 2019
+bayes_rating: 6.4
+users_rated: 2223
 ---
 Игра основана на Discworld: Ankh-Morpork по литературной вселенной «Плоского мира» Терри Пратчетта, но действие перенесено из Анк-Морпорка в викторианский Лондон.
 Механически это карточная игра на контроль территорий: игроки мешают друг другу, выставляют своих агентов, убирают вражеских, строят дома и пытаются выполнить свою скрытую цель.

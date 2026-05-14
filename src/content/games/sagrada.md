@@ -6,11 +6,11 @@ date_added: 2025-08-30
 plays: 1
 my_rating: 2
 image:
-title:
-year:
-bgg_rank:
-bayes_rating:
-average_rating:
-users_rated:
+title: "Sagrada"
+bgg_rank: 224
+average_rating: 7.5
+year: 2017
+bayes_rating: 7.3
+users_rated: 47715
 ---
 В игре нужно выстраивать витражи из разноцветных кубиков определённым образом для получения очков. Игра требует слишком большого количества подсчётов при случайном выпадении кубиков. Дополнительно мешает то, что кубики легко случайно сдвинуть или смахнуть
