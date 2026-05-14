@@ -5,7 +5,7 @@ localization: "Apex Legends. Настольная игра"
 date_added: 2026-03-19
 plays: 1
 my_rating: 7.5
-image:
+image: "images/games/apex-legends-the-board-game.jpg"
 title: "Apex Legends: The Board Game"
 bgg_rank: 6927
 average_rating: 7.9
