@@ -5,7 +5,7 @@ localization:
 date_added: 2025-07-19
 plays: 1
 my_rating: 9
-image:
+image: "images/games/aldarra.jpg"
 title: "Aldarra"
 bgg_rank: 9130
 average_rating: 8.1
