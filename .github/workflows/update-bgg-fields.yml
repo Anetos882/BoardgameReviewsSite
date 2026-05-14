@@ -1,0 +1,29 @@
+name: Update BGG fields
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-bgg-fields:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run update script
+        run: python scripts/update_bgg_fields.py
+
+      - name: Commit updated markdown files
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Update BGG fields from CSV"
+          file_pattern: "src/content/games/*.md"
