@@ -5,7 +5,7 @@ localization:
 date_added: 2026-03-26
 plays: 1
 my_rating: 9
-image:
+image: "images/games/mythic-battles-ragnarok.jpg"
 title: "Mythic Battles: Ragnarök"
 bgg_rank: 2907
 average_rating: 8.4
