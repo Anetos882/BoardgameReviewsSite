@@ -5,7 +5,7 @@ localization:
 date_added: 2025-07-03
 plays: 1
 my_rating: 7
-image:
+image: "images/games/masmorra-dungeons-of-arcadia.jpg"
 title: "Masmorra: Dungeons of Arcadia"
 bgg_rank: 1940
 average_rating: 7.0
