@@ -5,7 +5,7 @@ localization:
 date_added: 2025-08-07
 plays: 1
 my_rating: 3
-image:
+image: "images/games/castles-by-the-sea.jpg"
 title: "Castles by the Sea"
 bgg_rank: 6094
 average_rating: 6.9
