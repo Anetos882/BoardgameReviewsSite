@@ -5,7 +5,7 @@ localization: "Nanty Narking. Битва за Лондон"
 date_added: 2026-05-07
 plays: 1
 my_rating: 5
-image:
+image: images/games/mythic-battles-ragnarok.jpg
 title: "Nanty Narking"
 bgg_rank: 1534
 average_rating: 7.5
