@@ -5,7 +5,7 @@ localization:
 date_added: 2026-04-23
 plays: 1
 my_rating: 10
-image:
+image: images/games/nemesis-retaliation.jpg
 title: "Nemesis: Retaliation"
 bgg_rank: 513
 average_rating: 8.7
