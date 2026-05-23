@@ -535,9 +535,9 @@ function getImageSrc(image) {
             <select id="sort">
               <option value="title-asc">Название А–Я</option>
               <option value="title-desc">Название Я–А</option>
-              <option value="rating-desc" selected>Моя оценка: выше</option>
+              <option value="rating-desc">Моя оценка: выше</option>
               <option value="rating-asc">Моя оценка: ниже</option>
-              <option value="date-desc">Дата добавления: новые</option>
+              <option value="date-desc" selected>Дата добавления: новые</option>
               <option value="date-asc">Дата добавления: старые</option>
             </select>
           </div>
@@ -646,10 +646,19 @@ function getImageSrc(image) {
                       <dd>{game.data.average_rating ?? "—"}</dd>
                     </div>
 
-                    <div>
-                      <dt>Дата добавления</dt>
-                      <dd>{displayDate || "—"}</dd>
-                    </div>
+                    {/* === ИЗМЕНЕНИЕ 2: Удаление поля "Дата добавления" и замена на ссылку BGG === */}
+                    {game.data.bgg_url && (
+                        <div className="meta-chip">
+                            <a 
+                                class="card-link" 
+                                href={game.data.bgg_url} 
+                                target="_blank" 
+                                rel="noreferrer"
+                            >
+                                Открыть на BGG →
+                            </a>
+                        </div>
+                    )}
 
                     <div>
                       <dt>Кол-во оценок</dt>
@@ -657,18 +666,9 @@ function getImageSrc(image) {
                     </div>
                   </dl>
 
-                  {
-                    game.data.bgg_url && (
-                      <a
-                        class="card-link"
-                        href={game.data.bgg_url}
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                        Открыть на BGG →
-                      </a>
-                    )
-                  }
+                  {/* Убираем дублирующийся блок ссылки, так как он теперь в stats-grid */}
+                  {/* Если вам нужна ссылка только внизу, то оставьте его и удалите блок выше. 
+                     Но я рекомендую оставить один источник — либо в meta-row, либо в details-block.*/}
                 </div>
               </li>
             );
