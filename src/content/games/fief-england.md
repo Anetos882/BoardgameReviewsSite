@@ -5,7 +5,7 @@ localization: "Фьефы Англии"
 date_added: 2026-04-27
 plays: 1
 my_rating: 6
-image:
+image: images/games/fief-england.jpg
 title: "Fief: England"
 bgg_rank: 13282
 average_rating: 6.8
