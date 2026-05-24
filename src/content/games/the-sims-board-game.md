@@ -5,7 +5,7 @@ localization: "The Sims"
 date_added: 2025-12-04
 plays: 1
 my_rating: 3
-image:
+image: images/games/the-sims-board-game.jpg
 title: "The Sims Board Game"
 bgg_rank: 29261
 average_rating: 5.2
