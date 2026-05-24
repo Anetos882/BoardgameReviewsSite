@@ -6,12 +6,12 @@ date_added: 2025-05-10
 plays: 1
 my_rating: 7
 image: images/games/everdell-silverfrost.jpg
-title: "7 Wonders: Architects"
-bgg_rank: 810
-average_rating: 7.0
-year: 2021
-bayes_rating: 6.8
-users_rated: 13770
+title: "Everdell Silverfrost"
+bgg_rank: 1848
+average_rating: 8.2
+year: 2025
+bayes_rating: 6.3
+users_rated: 1106
 ---
 Зимняя вариация Everdell, которая переносит привычный «движокостроительный» процесс в холодную версию мира. 
 С одной стороны, игра заметно упрощает часть прежних требований к комбинациям: больше нет жёсткой необходимости размещать определённых зверьков в строго подходящие здания. 
