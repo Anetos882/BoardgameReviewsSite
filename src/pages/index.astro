@@ -522,7 +522,7 @@ function getImageSrc(image) {
             <input
               type="search"
               id="q"
-              placeholder="Поиск по названию или локализации…"
+              placeholder="Поиск по названию"
               autocomplete="off"
             />
           </div>
@@ -642,11 +642,10 @@ function getImageSrc(image) {
                     </div>
 
                     <div>
-                      <dt>Средний рейтинг</dt>
-                      <dd>{game.data.average_rating ?? "—"}</dd>
+                      <dt>Кол-во оценок</dt>
+                      <dd>{game.data.users_rated ?? "—"}</dd>
                     </div>
 
-                    {/* === ИЗМЕНЕНИЕ 2: Удаление поля "Дата добавления" и замена на ссылку BGG === */}
                     {game.data.bgg_url && (
                         <div className="meta-chip">
                             <a 
@@ -660,15 +659,8 @@ function getImageSrc(image) {
                         </div>
                     )}
 
-                    <div>
-                      <dt>Кол-во оценок</dt>
-                      <dd>{game.data.users_rated ?? "—"}</dd>
-                    </div>
                   </dl>
 
-                  {/* Убираем дублирующийся блок ссылки, так как он теперь в stats-grid */}
-                  {/* Если вам нужна ссылка только внизу, то оставьте его и удалите блок выше. 
-                     Но я рекомендую оставить один источник — либо в meta-row, либо в details-block.*/}
                 </div>
               </li>
             );
