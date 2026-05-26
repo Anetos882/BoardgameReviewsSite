@@ -1,43 +1,39 @@
-# Astro Starter Kit: Minimal
+# Boardgame Reviews Site
 
-```sh
-npm create astro@latest -- --template minimal
-```
+Личный сайт с отзывами о настольных играх, созданный на **Astro**.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Проект используется как удобный каталог сыгранных и изученных настольных игр: с личными оценками, краткими отзывами, изображениями, датой добавления, количеством партий и данными с BoardGameGeek.
 
-## 🚀 Project Structure
+## Что есть на сайте
 
-Inside of your Astro project, you'll see the following folders and files:
+- список настольных игр с отзывами;
+- личная оценка каждой игры;
+- средняя оценка и рейтинг с BoardGameGeek;
+- год выпуска, BGG Rank, Bayes Rating и количество оценок;
+- изображения игр;
+- сортировка по названию, оценке и дате добавления;
+- Markdown-формат для удобного добавления новых отзывов;
+- автоматическая сборка сайта через Astro.
+
+## Технологии
+
+- [Astro](https://astro.build/) — генератор статического сайта;
+- Markdown / MDX — формат хранения отзывов;
+- TypeScript — типизация и структура данных;
+- Python — вспомогательные скрипты для работы с данными BGG;
+- GitHub Pages — публикация сайта.
+
+## Структура проекта
 
 ```text
 /
-├── public/
+├── public/                 # Статические файлы и изображения
+├── scripts/                # Вспомогательные Python-скрипты
 ├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+│   ├── content/
+│   │   └── games/          # Markdown-файлы с отзывами
+│   ├── pages/              # Страницы сайта
+│   └── content.config.ts   # Схема данных для отзывов
+├── boardgames_ranks.csv    # Данные с BoardGameGeek
+├── package.json
+└── astro.config.mjs
