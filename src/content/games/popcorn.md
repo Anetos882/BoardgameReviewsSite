@@ -2,7 +2,7 @@
 bgg_url: "https://boardgamegeek.com/boardgame/430563/popcorn"
 bgg_id: 430563
 localization: 
-date_added: 2025-05-21
+date_added: 2026-05-21
 plays: 1
 my_rating: 5
 image: "images/games/popcorn.jpg"

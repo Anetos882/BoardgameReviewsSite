@@ -2,7 +2,7 @@
 bgg_url: "https://boardgamegeek.com/boardgame/224517/brass-birmingham"
 bgg_id: 224517
 localization: "Brass. Бирмингем"
-date_added: 2025-05-09
+date_added: 2026-05-09
 plays: 1
 my_rating: 7
 image: "images/games/brass-birmingham.jpg"

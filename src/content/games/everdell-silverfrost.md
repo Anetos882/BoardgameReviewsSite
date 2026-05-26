@@ -2,7 +2,7 @@
 bgg_url: "https://boardgamegeek.com/boardgame/436821/everdell-silverfrost"
 bgg_id: 436821
 localization: 
-date_added: 2025-05-10
+date_added: 2026-05-10
 plays: 1
 my_rating: 7
 image: "images/games/everdell-silverfrost.jpg"
