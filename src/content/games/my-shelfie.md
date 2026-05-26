@@ -7,10 +7,10 @@ plays: 1
 my_rating: 1
 image:
 title: "My Shelfie"
-bgg_rank: 2758
+bgg_rank: 2763
 average_rating: 6.5
 year: 2022
 bayes_rating: 6.1
-users_rated: 3218
+users_rated: 3224
 ---
 Игра делает попытку имитировать механику «три в ряд», но на практике это ей не удаётся. Игровой процесс не вызывает вовлечения

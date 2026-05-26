@@ -7,7 +7,7 @@ plays: 1
 my_rating: 3
 image: "images/games/castles-by-the-sea.jpg"
 title: "Castles by the Sea"
-bgg_rank: 6091
+bgg_rank: 6100
 average_rating: 6.9
 year: 2023
 bayes_rating: 5.7

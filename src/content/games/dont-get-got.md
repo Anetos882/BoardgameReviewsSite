@@ -7,7 +7,7 @@ plays: 1
 my_rating: 1
 image:
 title: "Don't Get Got!"
-bgg_rank: 2404
+bgg_rank: 2410
 average_rating: 6.9
 year: 2018
 bayes_rating: 6.2
