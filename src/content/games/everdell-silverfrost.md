@@ -5,7 +5,7 @@ localization:
 date_added: 2025-05-10
 plays: 1
 my_rating: 7
-image: images/games/everdell-silverfrost.jpg
+image: "images/games/everdell-silverfrost.jpg"
 title: "Everdell Silverfrost"
 bgg_rank: 1848
 average_rating: 8.2
