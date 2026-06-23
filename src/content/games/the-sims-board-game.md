@@ -7,10 +7,10 @@ plays: 1
 my_rating: 3
 image: images/games/the-sims-board-game.jpg
 title: "The Sims Board Game"
-bgg_rank: 29289
-average_rating: 5.2
+bgg_rank: 29360
+average_rating: 5.3
 year: 2025
 bayes_rating: 5.5
-users_rated: 170
+users_rated: 183
 ---
 Отвратительная, крайне примитивная игра с механикой сбора сетов в духе Салата удачи / Города удачи. При этом стоит неоправданно дорого — 3000 рублей. Единственный плюс — смешные и откровенно неприличные названия и описания карт

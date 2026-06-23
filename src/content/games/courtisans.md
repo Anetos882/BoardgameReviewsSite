@@ -7,10 +7,10 @@ plays: 1
 my_rating: 4
 image:
 title: "Courtisans"
-bgg_rank: 1073
+bgg_rank: 1057
 average_rating: 7.3
 year: 2024
 bayes_rating: 6.6
-users_rated: 4539
+users_rated: 4657
 ---
 Простая и непримечательная игра, в которой, на мой взгляд, случайность влияет на итоговый результат сильнее, чем осознанная тактика
