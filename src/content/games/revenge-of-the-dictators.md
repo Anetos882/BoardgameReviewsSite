@@ -5,7 +5,7 @@ localization:
 date_added: 2025-06-18
 plays: 1
 my_rating: 5
-image:
+image: "images/games/revenge-of-the-dictators.jpg"
 title: 
 bgg_rank: 815
 average_rating: 7.0

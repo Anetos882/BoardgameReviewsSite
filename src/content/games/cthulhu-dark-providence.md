@@ -5,7 +5,7 @@ localization:
 date_added: 2025-05-28
 plays: 1
 my_rating: 7.5
-image:
+image: "images/games/cthulhu-dark-providence.jpg"
 title:
 bgg_rank: 815
 average_rating: 7.0
