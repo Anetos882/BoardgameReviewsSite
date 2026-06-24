@@ -2,7 +2,7 @@
 bgg_url: "https://boardgamegeek.com/boardgame/452684/yami"
 bgg_id: 452684
 localization: "Ями"
-date_added: 2025-06-18
+date_added: 2026-06-18
 plays: 1
 my_rating: 4
 image: "images/games/yami.jpg"

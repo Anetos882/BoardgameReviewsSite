@@ -4,7 +4,7 @@ bgg_id: 346703
 localization: "7 чудес: Архитекторы"
 date_added: 2025-07-21
 plays: 4
-my_rating: 3
+my_rating: 4
 image:
 title: "7 Wonders: Architects"
 bgg_rank: 813

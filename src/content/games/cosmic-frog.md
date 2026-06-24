@@ -4,7 +4,7 @@ bgg_id: 295905
 localization: 
 date_added: 2026-05-09
 plays: 1
-my_rating: 1
+my_rating: 2
 image: images/games/cosmic-frog.jpg
 title: "Cosmic Frog"
 bgg_rank: 1959

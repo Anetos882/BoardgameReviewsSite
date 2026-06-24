@@ -2,7 +2,7 @@
 bgg_url: "https://boardgamegeek.com/boardgame/404509/cthulhu-dark-providence"
 bgg_id: 404509
 localization:
-date_added: 2025-05-28
+date_added: 2026-05-28
 plays: 1
 my_rating: 7.5
 image: "images/games/cthulhu-dark-providence.jpg"

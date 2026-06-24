@@ -2,7 +2,7 @@
 bgg_url: "https://boardgamegeek.com/boardgame/192984/revenge-of-the-dictators"
 bgg_id: 192984
 localization:
-date_added: 2025-06-18
+date_added: 2026-06-18
 plays: 1
 my_rating: 5
 image: "images/games/revenge-of-the-dictators.jpg"

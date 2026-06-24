@@ -4,7 +4,7 @@ bgg_id: 366456
 localization: "По полочкам"
 date_added: 2025-08-11
 plays: 1
-my_rating: 1
+my_rating: 3
 image:
 title: "My Shelfie"
 bgg_rank: 2764

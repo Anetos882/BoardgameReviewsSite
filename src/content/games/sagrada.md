@@ -4,7 +4,7 @@ bgg_id: 199561
 localization: "Саграда"
 date_added: 2025-08-30
 plays: 1
-my_rating: 2
+my_rating: 3
 image:
 title: "Sagrada"
 bgg_rank: 225
