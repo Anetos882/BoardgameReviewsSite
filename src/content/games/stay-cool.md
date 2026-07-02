@@ -1,15 +1,15 @@
 ---
-bgg_url: "https://boardgamegeek.com/boardgame/262547/dont-get-got"
-bgg_id: 262547
+bgg_url: "https://boardgamegeek.com/boardgame/267475/stay-cool"
+bgg_id: 267475
 localization: "Не бомбани!"
 date_added: 2025-05-31
 plays: 1
 my_rating: 1
 image:
-title: "Don't Get Got!"
-bgg_rank: 2412
-average_rating: 6.9
-year: 2018
+title: "Stay Cool"
+bgg_rank: 2886
+average_rating: 7.0
+year: 2019
 bayes_rating: 6.2
 users_rated: 2068
 ---
