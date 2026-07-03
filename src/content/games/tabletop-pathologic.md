@@ -7,7 +7,7 @@ plays: 1
 my_rating: 4
 image:
 title: "Tabletop Pathologic"
-bgg_rank: 16497
+bgg_rank: 16521
 average_rating: 6.3
 year: 2016
 bayes_rating: 5.5
