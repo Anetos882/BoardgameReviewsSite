@@ -7,7 +7,7 @@ plays: 1
 my_rating: 9
 image: "images/games/mythic-battles-ragnarok.jpg"
 title: "Mythic Battles: Ragnarök"
-bgg_rank: 2894
+bgg_rank: 2906
 average_rating: 8.4
 year: 2024
 bayes_rating: 6.1

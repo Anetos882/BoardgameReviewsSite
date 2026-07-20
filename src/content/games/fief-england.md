@@ -7,7 +7,7 @@ plays: 1
 my_rating: 6
 image: images/games/fief-england.jpg
 title: "Fief: England"
-bgg_rank: 12961
+bgg_rank: 12989
 average_rating: 6.7
 year: 2025
 bayes_rating: 5.6

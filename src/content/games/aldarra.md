@@ -7,7 +7,7 @@ plays: 1
 my_rating: 9
 image: "images/games/aldarra.jpg"
 title: "Aldarra"
-bgg_rank: 8822
+bgg_rank: 8841
 average_rating: 8.1
 year: 2024
 bayes_rating: 5.6

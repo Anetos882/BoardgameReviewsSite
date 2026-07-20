@@ -7,10 +7,10 @@ plays: 1
 my_rating: 3
 image:
 title: "MLEM: Space Agency"
-bgg_rank: 979
-average_rating: 7.2
+bgg_rank: 978
+average_rating: 7.1
 year: 2024
 bayes_rating: 6.7
-users_rated: 6242
+users_rated: 6308
 ---
 Игра оставила слабое впечатление. Слишком высокая доля случайности и сеттинг «космических котов» выглядит странно. Возможно, игра рассчитана на кооперативное взаимодействие, однако его не ощущалось
