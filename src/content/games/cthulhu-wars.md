@@ -7,7 +7,9 @@ plays: 1
 my_rating: 8
 image: "images/games/cthulhu-wars.jpg"
 title: "Cthulhu Wars"
+bgg_rank: 3351
 average_rating: 7.8
+year: 2025
 users_rated: 6905
 bayes_rating: 7.1
 ---
