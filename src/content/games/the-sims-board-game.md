@@ -7,7 +7,7 @@ plays: 1
 my_rating: 3
 image: images/games/the-sims-board-game.jpg
 title: "The Sims Board Game"
-bgg_rank: 29692
+bgg_rank: 29701
 average_rating: 5.2
 year: 2025
 bayes_rating: 5.5

@@ -7,7 +7,7 @@ plays: 1
 my_rating: 1
 image:
 title: "Stay Cool"
-bgg_rank: 2903
+bgg_rank: 2905
 average_rating: 7.0
 year: 2019
 bayes_rating: 6.1

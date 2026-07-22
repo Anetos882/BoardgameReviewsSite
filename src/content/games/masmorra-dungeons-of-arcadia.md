@@ -7,7 +7,7 @@ plays: 1
 my_rating: 7
 image: "images/games/masmorra-dungeons-of-arcadia.jpg"
 title: "Masmorra: Dungeons of Arcadia"
-bgg_rank: 1961
+bgg_rank: 1964
 average_rating: 7.0
 year: 2017
 bayes_rating: 6.3

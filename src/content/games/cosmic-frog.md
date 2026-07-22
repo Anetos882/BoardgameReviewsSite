@@ -7,7 +7,7 @@ plays: 1
 my_rating: 2
 image: images/games/cosmic-frog.jpg
 title: "Cosmic Frog"
-bgg_rank: 1964
+bgg_rank: 1963
 average_rating: 7.2
 year: 2020
 bayes_rating: 6.3

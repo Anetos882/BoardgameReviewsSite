@@ -7,7 +7,7 @@ plays: 3
 my_rating: 6
 image:
 title: "Monumental Duel: Trade"
-bgg_rank: 10305
+bgg_rank: 10310
 average_rating: 6.9
 year: 2024
 bayes_rating: 5.6

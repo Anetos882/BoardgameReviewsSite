@@ -7,7 +7,7 @@ plays: 1
 my_rating: 5
 image:
 title: "Resurgence"
-bgg_rank: 2391
+bgg_rank: 2393
 average_rating: 7.5
 year: 2022
 bayes_rating: 6.2
