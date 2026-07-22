@@ -22,6 +22,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Update BGG fields for build
+        run: python scripts/update_bgg_fields.py
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
         with:
