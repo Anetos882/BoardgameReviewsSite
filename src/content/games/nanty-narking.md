@@ -7,7 +7,7 @@ plays: 1
 my_rating: 5
 image: images/games/nanty-narking.jpg
 title: "Nanty Narking"
-bgg_rank: 1551
+bgg_rank: 1552
 average_rating: 7.5
 year: 2019
 bayes_rating: 6.4
