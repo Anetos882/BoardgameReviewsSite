@@ -7,7 +7,7 @@ plays: 1
 my_rating: 4
 image:
 title: "Explora"
-bgg_rank: 23661
+bgg_rank: 23699
 average_rating: 6.1
 year: 2023
 bayes_rating: 5.5

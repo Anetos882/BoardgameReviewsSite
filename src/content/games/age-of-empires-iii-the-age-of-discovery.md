@@ -7,7 +7,7 @@ plays: 1
 my_rating: 4.5
 image:
 title: "Age of Empires III: The Age of Discovery"
-bgg_rank: 392
+bgg_rank: 393
 average_rating: 7.5
 year: 2007
 bayes_rating: 7.1

@@ -7,7 +7,7 @@ plays: 1
 my_rating: 5
 image:
 title: "8Bit Box"
-bgg_rank: 8690
+bgg_rank: 8705
 average_rating: 6.1
 year: 2018
 bayes_rating: 5.6
