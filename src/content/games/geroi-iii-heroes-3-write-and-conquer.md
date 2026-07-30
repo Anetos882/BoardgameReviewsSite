@@ -2,7 +2,7 @@
 bgg_url: "https://boardgamegeek.com/boardgame/471909/geroi-iii-heroes-3-write-and-conquer"
 bgg_id: 471909
 localization: "Герои III"
-date_added: 2026-02-29
+date_added: 2026-07-29
 plays: 1
 my_rating: 6
 image: "images/games/geroi-iii-heroes-3-write-and-conquer.jpg"
