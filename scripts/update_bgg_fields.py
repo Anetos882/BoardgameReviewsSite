@@ -51,12 +51,13 @@ def load_bgg_data():
     return data
 
 
-def update_frontmatter(text: str, bgg_data: dict, file_path: Path) -> tuple[str, bool]:
+def update_frontmatter(
+    text: str, bgg_data: dict, file_path: Path
+) -> tuple[str, bool, str | None]:
     match = re.match(r"^---\n(.*?)\n---\n?(.*)$", text, flags=re.DOTALL)
 
     if not match:
-        print(f"Пропущен файл без frontmatter: {file_path}")
-        return text, False
+        return text, False, "no_frontmatter"
 
     frontmatter = match.group(1)
     body = match.group(2)
@@ -64,21 +65,19 @@ def update_frontmatter(text: str, bgg_data: dict, file_path: Path) -> tuple[str,
     bgg_id_match = re.search(r"^bgg_id:\s*(\d+)\s*$", frontmatter, flags=re.MULTILINE)
 
     if not bgg_id_match:
-        print(f"Нет bgg_id: {file_path}")
-        return text, False
+        return text, False, "no_bgg_id"
 
     bgg_id = bgg_id_match.group(1)
 
     if bgg_id not in bgg_data:
-        print(f"Не найден bgg_id {bgg_id} в CSV: {file_path}")
-        return text, False
+        return text, False, "missing_in_csv"
 
     row = bgg_data[bgg_id]
     updated = frontmatter
 
     for md_field, csv_field in FIELDS_MAP.items():
         new_value = format_value(md_field, row[csv_field])
-        pattern = rf"^{md_field}:\s*.*$"
+        pattern = rf"^{re.escape(md_field)}:[^\n]*$"
         replacement = f"{md_field}: {new_value}"
 
         if re.search(pattern, updated, flags=re.MULTILINE):
@@ -88,7 +87,7 @@ def update_frontmatter(text: str, bgg_data: dict, file_path: Path) -> tuple[str,
 
     new_text = f"---\n{updated}\n---\n{body}"
 
-    return new_text, new_text != text
+    return new_text, new_text != text, None
 
 
 def main():
@@ -101,10 +100,19 @@ def main():
     bgg_data = load_bgg_data()
 
     updated_count = 0
+    skipped: dict[str, list[str]] = {
+        "no_frontmatter": [],
+        "no_bgg_id": [],
+        "missing_in_csv": [],
+    }
 
     for file_path in sorted(GAMES_DIR.glob("*.md")):
         old_text = file_path.read_text(encoding="utf-8")
-        new_text, changed = update_frontmatter(old_text, bgg_data, file_path)
+        new_text, changed, skip_reason = update_frontmatter(old_text, bgg_data, file_path)
+
+        if skip_reason:
+            skipped[skip_reason].append(file_path.name)
+            continue
 
         if changed:
             file_path.write_text(new_text, encoding="utf-8")
@@ -112,6 +120,21 @@ def main():
             print(f"Обновлён: {file_path.name}")
 
     print(f"\nГотово. Обновлено файлов: {updated_count}")
+
+    if skipped["missing_in_csv"]:
+        print(f"Пропущено (bgg_id не найден в CSV): {len(skipped['missing_in_csv'])}")
+        for name in skipped["missing_in_csv"]:
+            print(f"  - {name}")
+
+    if skipped["no_bgg_id"]:
+        print(f"Пропущено (нет bgg_id): {len(skipped['no_bgg_id'])}")
+        for name in skipped["no_bgg_id"]:
+            print(f"  - {name}")
+
+    if skipped["no_frontmatter"]:
+        print(f"Пропущено (нет frontmatter): {len(skipped['no_frontmatter'])}")
+        for name in skipped["no_frontmatter"]:
+            print(f"  - {name}")
 
 
 if __name__ == "__main__":

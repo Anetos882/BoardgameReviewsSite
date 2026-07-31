@@ -1,7 +1,16 @@
 name: Update BGG fields
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - "src/content/games/**"
+      - "boardgames_ranks.csv"
   workflow_dispatch:
+
+concurrency:
+  group: update-bgg-fields
+  cancel-in-progress: false
 
 permissions:
   contents: write
