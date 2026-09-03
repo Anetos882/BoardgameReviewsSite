@@ -7,7 +7,7 @@ plays: 1
 my_rating: 3
 image:
 title: "Dino Party"
-bgg_rank: 25773
+bgg_rank: 25670
 average_rating: 5.6
 year: 2018
 bayes_rating: 5.5

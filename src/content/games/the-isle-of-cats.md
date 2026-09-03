@@ -6,12 +6,12 @@ date_added: 2026-08-18
 plays: 1
 my_rating: 7
 image: "images/games/the-isle-of-cats.jpg"
-title: 
-average_rating: 
-users_rated: 
-bayes_rating: 
-year: 
-bgg_rank: 
+title: "The Isle of Cats"
+average_rating: 7.6
+users_rated: 25578
+bayes_rating: 7.4
+year: 2019
+bgg_rank: 207
 ---
 Смесь драфта карт и головоломки с размещением полимино. В течение пяти раундов нужно спасать кошек и размещать их на своём корабле, стараясь закрывать помещения, накрывать крыс и объединять кошек одного цвета в семьи.
 
