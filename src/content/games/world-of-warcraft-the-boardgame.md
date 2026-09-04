@@ -4,7 +4,7 @@ bgg_id: 17223
 localization: "World of Warcraft: Настольная игра"
 date_added: 2025-02-23
 plays: 1
-my_rating: 9
+my_rating: 7
 image: "images/games/world-of-warcraft-the-boardgame.jpg"
 title: "World of Warcraft: The Boardgame"
 bgg_rank: 1920

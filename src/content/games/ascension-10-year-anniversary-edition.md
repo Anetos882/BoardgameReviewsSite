@@ -3,7 +3,7 @@ bgg_url: "https://boardgamegeek.com/boardgame/325810/ascension-10-year-anniversa
 bgg_id: 325810
 localization: 
 date_added: 2026-08-29
-plays: 1
+plays: 2
 my_rating: 8
 image: "images/games/ascension-10-year-anniversary-edition.jpg"
 title: 
