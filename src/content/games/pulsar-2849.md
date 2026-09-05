@@ -6,12 +6,12 @@ date_added: 2026-08-13
 plays: 1
 my_rating: 7.5
 image: "images/games/pulsar-2849.jpg"
-title: 
-average_rating: 
-users_rated: 
-bayes_rating: 
-year: 
-bgg_rank: 
+title: "The Isle of Cats"
+average_rating: 7.6
+users_rated: 25628
+bayes_rating: 7.4
+year: 2019
+bgg_rank: 204
 ---
 Достаточно простое космическое евро с высоким уровнем конкуренции за действия. Каждый раунд выбираешь всего два кубика из общего пула и используешь их для исследования космоса, захвата пульсаров, строительства гиродинов и передатчиков или развития технологий.
 

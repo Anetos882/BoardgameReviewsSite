@@ -6,12 +6,12 @@ date_added: 2026-08-29
 plays: 1
 my_rating: 7.5
 image: "images/games/the-white-castle.jpg"
-title: 
-average_rating: 
-users_rated: 
-bayes_rating: 
-year: 
-bgg_rank: 
+title: "The White Castle"
+average_rating: 8.0
+users_rated: 24197
+bayes_rating: 7.7
+year: 2023
+bgg_rank: 72
 ---
 Несмотря на небольшой размер коробки, это комплексное и кризисное евро в сеттинге средневековой Японии. В игре мало времени на развитие: всего три раунда по три хода, запас ресурсов ограничен семью единицами, а на самые сильные действия требуется сразу пять единиц одного ресурса.
 

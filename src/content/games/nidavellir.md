@@ -8,7 +8,7 @@ my_rating: 5
 image: "images/games/nidavellir.jpg"
 title: "Nidavellir"
 average_rating: 7.5
-users_rated: 16431
+users_rated: 16467
 bayes_rating: 7.3
 year: 2020
 bgg_rank: 259
