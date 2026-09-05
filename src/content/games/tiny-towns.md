@@ -1,6 +1,6 @@
 ---
 bgg_url: "https://boardgamegeek.com/boardgame/265736/tiny-towns"
-bgg_id: 325810
+bgg_id: 265736
 localization: 
 date_added: 2026-09-01
 plays: 1
