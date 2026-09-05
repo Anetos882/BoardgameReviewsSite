@@ -6,12 +6,12 @@ date_added: 2026-09-03
 plays: 2
 my_rating: 5
 image: "images/games/marvel-united-x-men.jpg"
-title: 
-average_rating: 
-users_rated: 
-bayes_rating: 
-year: 
-bgg_rank: 
+title: "Marvel United: X-Men"
+average_rating: 8.0
+users_rated: 4851
+bayes_rating: 7.1
+year: 2021
+bgg_rank: 406
 ---
 Детская кооперативная игра, в которой герои сражаются против злодея, разыгрывая карты. На картах всего три типа: атака, перемещение и особое действие. Через каждые три хода игроков разыгрывается карта злодея. Для победы сначала нужно выполнить две миссии, а затем нанести урон самому злодею.
 

@@ -8,7 +8,7 @@ my_rating: 8
 image: "images/games/return-to-dark-tower.jpg"
 title: "Return to Dark Tower"
 average_rating: 8.2
-users_rated: 6031
+users_rated: 6061
 bayes_rating: 7.3
 year: 2022
 bgg_rank: 230

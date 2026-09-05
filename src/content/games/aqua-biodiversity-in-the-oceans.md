@@ -7,10 +7,10 @@ plays: 1
 my_rating: 7
 image:
 title: "Aqua: Biodiversity in the Oceans"
-bgg_rank: 2641
+bgg_rank: 2631
 average_rating: 7.1
 year: 2024
 bayes_rating: 6.1
-users_rated: 1484
+users_rated: 1499
 ---
 У игры простая и семейная механика: нужно составлять подходящие друг к другу тайлы, создавая коралловый риф и размещая на нём различных рыб для получения победных очков.

@@ -7,11 +7,11 @@ plays: 1
 my_rating: 7
 image: "images/games/everdell-silverfrost.jpg"
 title: "Everdell Silverfrost"
-bgg_rank: 1623
+bgg_rank: 1555
 average_rating: 8.1
 year: 2025
 bayes_rating: 6.4
-users_rated: 1327
+users_rated: 1387
 ---
 Зимняя вариация Everdell, которая переносит привычный «движокостроительный» процесс в холодную версию мира. 
 С одной стороны, игра заметно упрощает часть прежних требований к комбинациям: больше нет жёсткой необходимости размещать определённых зверьков в строго подходящие здания. 

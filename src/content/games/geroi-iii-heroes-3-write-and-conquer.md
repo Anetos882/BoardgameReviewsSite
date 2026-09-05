@@ -7,8 +7,8 @@ plays: 1
 my_rating: 6
 image: "images/games/geroi-iii-heroes-3-write-and-conquer.jpg"
 title: "Герои III (Heroes 3: Write & Conquer)"
-average_rating: 8.0
-users_rated: 2
+average_rating: 7.7
+users_rated: 3
 bayes_rating: 0.0
 year: 2026
 bgg_rank: 0

@@ -7,7 +7,7 @@ plays: 1
 my_rating: 5
 image: "images/games/revenge-of-the-dictators.jpg"
 title: "Revenge of the Dictators"
-bgg_rank: 21742
+bgg_rank: 22295
 average_rating: 6.0
 year: 2016
 bayes_rating: 5.5
