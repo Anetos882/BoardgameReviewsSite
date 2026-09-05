@@ -6,12 +6,12 @@ date_added: 2026-09-01
 plays: 1
 my_rating: 4
 image: "images/games/tiny-towns.jpg"
-title: "Ascension: 10 Year Anniversary Edition"
-average_rating: 7.8
-users_rated: 1268
-bayes_rating: 6.2
-year: 2022
-bgg_rank: 2104
+title: "Tiny Towns"
+average_rating: 7.2
+users_rated: 22756
+bayes_rating: 7.0
+year: 2019
+bgg_rank: 532
 ---
 На поле размером 4×4 нужно размещать кубики пяти разных цветов и складывать из них комбинации для строительства зданий, которые приносят победные очки. Два кубика достаются случайно, а ещё один выбирает игрок. Между зданиями есть взаимосвязи, а у каждого игрока дополнительно имеется одно уникальное здание.
 
