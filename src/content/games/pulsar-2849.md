@@ -6,12 +6,12 @@ date_added: 2026-08-13
 plays: 1
 my_rating: 7.5
 image: "images/games/pulsar-2849.jpg"
-title: 
-average_rating: 
-users_rated: 
-bayes_rating: 
-year: 
-bgg_rank: 
+title: "Pulsar 2849"
+average_rating: 7.6
+users_rated: 9887
+bayes_rating: 7.2
+year: 2017
+bgg_rank: 318
 ---
 Достаточно простое космическое евро с высоким уровнем конкуренции за действия. Каждый раунд выбираешь всего два кубика из общего пула и используешь их для исследования космоса, захвата пульсаров, строительства гиродинов и передатчиков или развития технологий.
 
