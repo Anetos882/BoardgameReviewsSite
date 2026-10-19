@@ -4,7 +4,7 @@ bgg_id: 429851
 localization: "Кворум"
 date_added: 2026-10-08
 plays: 1
-my_rating: 3
+my_rating: 3.5
 image: "images/games/quorum.jpg"
 title: 
 average_rating: 
