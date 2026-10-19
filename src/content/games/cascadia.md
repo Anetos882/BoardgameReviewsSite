@@ -8,7 +8,7 @@ my_rating: 8
 image: "images/games/cascadia.jpg"
 title: "Cascadia"
 average_rating: 7.9
-users_rated: 56948
+users_rated: 57641
 bayes_rating: 7.7
 year: 2021
 bgg_rank: 61

@@ -7,8 +7,8 @@ plays: 1
 my_rating: 8
 image: "images/games/agon-agon.jpg"
 title: "Агон (Agon)"
-average_rating: 7.3
-users_rated: 17
+average_rating: 7.2
+users_rated: 18
 bayes_rating: 0.0
 year: 2025
 bgg_rank: 0

@@ -6,12 +6,12 @@ date_added: 2026-10-15
 plays: 1
 my_rating: 4
 image: "images/games/silos.jpg"
-title: 
-average_rating: 
-users_rated: 
-bayes_rating: 
-year: 
-bgg_rank: 
+title: "SILOS"
+average_rating: 7.3
+users_rated: 686
+bayes_rating: 5.9
+year: 2025
+bgg_rank: 3938
 ---
 Простая игра на контроль территорий, в которой игроки управляют пришельцами, проникшими в различные районы города и похищающими людей и коров. За каждый собранный комплект из четырёх разных типов людей игрок получает победный жетон.
 

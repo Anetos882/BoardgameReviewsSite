@@ -6,12 +6,12 @@ date_added: 2026-09-10
 plays: 2
 my_rating: 4
 image: "images/games/clinic-deluxe-edition.jpg"
-title: 
-average_rating: 
-users_rated: 
-bayes_rating: 
-year: 
-bgg_rank: 
+title: "Clinic: Deluxe Edition"
+average_rating: 7.6
+users_rated: 3220
+bayes_rating: 6.7
+year: 2019
+bgg_rank: 1002
 ---
 Слабое евро, в котором тематика больницы слишком подчинена математической оптимизации. Парковки, правила размещения помещений и перемещение людей ощущаются не как интересные элементы, а как дополнительные проблемы, которые игра создаёт только для того, чтобы мешать набору очков.
 

@@ -8,7 +8,7 @@ my_rating: 7.5
 image: "images/games/the-white-castle.jpg"
 title: "The White Castle"
 average_rating: 8.0
-users_rated: 24197
+users_rated: 24730
 bayes_rating: 7.7
 year: 2023
 bgg_rank: 72
