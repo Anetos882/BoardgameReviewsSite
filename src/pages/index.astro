@@ -16,11 +16,17 @@ const games = await Promise.all(
     }),
 );
 
+// Совпадает с выбранной по умолчанию сортировкой в интерфейсе.
 games.sort((a, b) => {
-    return (b.data.my_rating ?? 0) - (a.data.my_rating ?? 0);
+    const dateA = a.data.date_added ? new Date(a.data.date_added).getTime() : 0;
+    const dateB = b.data.date_added ? new Date(b.data.date_added).getTime() : 0;
+    return dateB - dateA;
 });
 
 const baseUrl = import.meta.env.BASE_URL;
+const siteUrl = new URL(baseUrl, Astro.site ?? Astro.url).href;
+const siteDescription =
+    "Личные отзывы о настольных играх: впечатления от партий, оценки, краткие обзоры и данные BoardGameGeek.";
 
 function formatDateRu(value) {
     if (!value) return "";
@@ -54,6 +60,29 @@ function getImageSrc(image) {
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Отзывы о настольных играх</title>
+        <meta name="description" content={siteDescription} />
+        <link rel="canonical" href={siteUrl} />
+        <link rel="icon" type="image/svg+xml" href={`${baseUrl}favicon.svg`} />
+        <link rel="shortcut icon" type="image/x-icon" href={`${baseUrl}favicon.ico`} />
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content="ru_RU" />
+        <meta property="og:site_name" content="Отзывы о настольных играх" />
+        <meta property="og:title" content="Отзывы о настольных играх" />
+        <meta property="og:description" content={siteDescription} />
+        <meta property="og:url" content={siteUrl} />
+        <meta name="twitter:card" content="summary" />
+
+        <!-- is:inline выполняется до отрисовки страницы и предотвращает вспышку неверной темы. -->
+        <script is:inline>
+            try {
+                const savedTheme = localStorage.getItem("reviews-theme");
+                if (savedTheme === "light" || savedTheme === "dark") {
+                    document.documentElement.setAttribute("data-theme", savedTheme);
+                }
+            } catch {
+                // При недоступном localStorage используется системная тема.
+            }
+        </script>
 
         <style>
             :root {
@@ -169,6 +198,18 @@ function getImageSrc(image) {
                 gap: var(--space-sm);
             }
 
+            .sr-only {
+                position: absolute;
+                width: 1px;
+                height: 1px;
+                padding: 0;
+                margin: -1px;
+                overflow: hidden;
+                clip: rect(0, 0, 0, 0);
+                white-space: nowrap;
+                border: 0;
+            }
+
             .search-wrap {
                 flex: 1 1 12rem;
                 min-width: 10rem;
@@ -258,6 +299,7 @@ function getImageSrc(image) {
             }
 
             .card {
+                scroll-margin-top: 5rem;
                 background: var(--surface);
                 border-radius: var(--radius-lg);
                 box-shadow: var(--shadow);
@@ -275,6 +317,25 @@ function getImageSrc(image) {
                 font-weight: 700;
                 letter-spacing: -0.02em;
                 line-height: 1.3;
+            }
+
+            .permalink {
+                margin-left: 0.25rem;
+                color: var(--text-muted);
+                font-size: 0.85em;
+                font-weight: 400;
+                text-decoration: none;
+            }
+
+            .permalink:hover {
+                color: var(--accent);
+                text-decoration: underline;
+            }
+
+            .permalink:focus-visible {
+                outline: 2px solid var(--accent);
+                outline-offset: 3px;
+                border-radius: 2px;
             }
 
             .card-sub {
@@ -481,6 +542,7 @@ function getImageSrc(image) {
                 .card {
                     padding: 1rem;
                     border-radius: 1.25rem;
+                    scroll-margin-top: 1rem;
                 }
 
                 .card-title {
@@ -526,6 +588,7 @@ function getImageSrc(image) {
             <div class="header-inner">
                 <div class="toolbar">
                     <div class="search-wrap">
+                        <label class="sr-only" for="q">Поиск по названию игры</label>
                         <input
                             type="search"
                             id="q"
@@ -539,6 +602,7 @@ function getImageSrc(image) {
                     </p>
 
                     <div class="sort-wrap">
+                        <label class="sr-only" for="sort">Сортировка отзывов</label>
                         <select id="sort">
                             <option value="title-asc">Название А–Я</option>
                             <option value="title-desc">Название Я–А</option>
@@ -568,6 +632,7 @@ function getImageSrc(image) {
         </header>
 
         <main>
+            <h1 class="page-title">Отзывы о настольных играх</h1>
             <ul class="cards" id="cards">
                 {
                     games.map((game) => {
@@ -583,6 +648,7 @@ function getImageSrc(image) {
                         return (
                             <li
                                 class="card"
+                                id={`review-${game.slug}`}
                                 data-title={title}
                                 data-localization={localization ?? ""}
                                 data-rating={game.data.my_rating ?? ""}
@@ -606,7 +672,17 @@ function getImageSrc(image) {
                                 )}
 
                                 <div class="card-head">
-                                    <h2 class="card-title">{title}</h2>
+                                    <h2 class="card-title">
+                                        {title}
+                                        <a
+                                            class="permalink"
+                                            href={`#review-${game.slug}`}
+                                            aria-label={`Прямая ссылка на отзыв об игре ${title}`}
+                                            title="Ссылка на отзыв"
+                                        >
+                                            #
+                                        </a>
+                                    </h2>
                                     {localization && (
                                         <p class="card-sub">{localization}</p>
                                     )}
@@ -670,7 +746,7 @@ function getImageSrc(image) {
                                         </div>
 
                                         {game.data.bgg_url && (
-                                            <div className="meta-chip">
+                                            <div class="meta-chip">
                                                 <a
                                                     class="card-link"
                                                     href={game.data.bgg_url}
@@ -838,7 +914,11 @@ function getImageSrc(image) {
             qEl.addEventListener("input", filterCards);
             sortEl.addEventListener("change", filterCards);
 
-            filterCards();
+            // Не перестраиваем готовый список при первой загрузке:
+            // так переход по прямой ссылке #review-… остаётся надёжным.
+            if (qEl.value.trim() || sortEl.value !== "date-desc") {
+                filterCards();
+            }
         </script>
     </body>
 </html>
