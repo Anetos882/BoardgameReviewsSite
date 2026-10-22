@@ -54,6 +54,12 @@ function getImageSrc(image) {
 
     return `${baseUrl}${String(image).replace(/^\/+/, "")}`;
 }
+
+function formatStat(value) {
+    return value === null || value === undefined || value === "" || Number(value) === 0
+        ? "—"
+        : value;
+}
 ---
 
 <html lang="ru">
@@ -63,8 +69,7 @@ function getImageSrc(image) {
         <title>Отзывы о настольных играх</title>
         <meta name="description" content={siteDescription} />
         <link rel="canonical" href={siteUrl} />
-        <link rel="icon" type="image/svg+xml" href={`${baseUrl}favicon.svg`} />
-        <link rel="shortcut icon" type="image/x-icon" href={`${baseUrl}favicon.ico`} />
+        <link rel="icon" type="image/png" href={`${baseUrl}Icon_for_a_board_game_website.png`} />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="ru_RU" />
         <meta property="og:site_name" content="Отзывы о настольных играх" />
@@ -667,8 +672,8 @@ function getImageSrc(image) {
                         type="button"
                         class="btn-icon"
                         id="scale-toggle"
-                        title="Моя шкала оценок"
-                        aria-label="Показать мою шкалу оценок BGG"
+                        title="Шкала оценок"
+                        aria-label="Показать шкалу оценок"
                         aria-controls="rating-scale"
                         aria-expanded="false"
                     >
@@ -693,7 +698,7 @@ function getImageSrc(image) {
                     hidden
                 >
                     <h2 class="scale-title" id="rating-scale-title">
-                        Моя шкала оценок по формулировкам BGG
+                        Шкала оценок
                     </h2>
                     <ul class="scale-list">
                         <li>10 — Выдающаяся игра, всегда хочу играть</li>
@@ -778,7 +783,7 @@ function getImageSrc(image) {
                                     {game.data.average_rating !== undefined && (
                                         <span class="meta-chip">
                                             Средний BGG:{" "}
-                                            {game.data.average_rating}
+                                            {formatStat(game.data.average_rating)}
                                         </span>
                                     )}
 
@@ -803,25 +808,25 @@ function getImageSrc(image) {
                                     <dl class="stats-grid">
                                         <div>
                                             <dt>Год</dt>
-                                            <dd>{game.data.year ?? "—"}</dd>
+                                            <dd>{formatStat(game.data.year)}</dd>
                                         </div>
 
                                         <div>
                                             <dt>Ранг BGG</dt>
-                                            <dd>{game.data.bgg_rank ?? "—"}</dd>
+                                            <dd>{formatStat(game.data.bgg_rank)}</dd>
                                         </div>
 
                                         <div>
                                             <dt>Взвешенный BGG</dt>
                                             <dd>
-                                                {game.data.bayes_rating ?? "—"}
+                                                {formatStat(game.data.bayes_rating)}
                                             </dd>
                                         </div>
 
                                         <div>
                                             <dt>Кол-во оценок</dt>
                                             <dd>
-                                                {game.data.users_rated ?? "—"}
+                                                {formatStat(game.data.users_rated)}
                                             </dd>
                                         </div>
 
@@ -866,8 +871,8 @@ function getImageSrc(image) {
                 scaleBtn.setAttribute(
                     "aria-label",
                     isOpen
-                        ? "Скрыть мою шкалу оценок BGG"
-                        : "Показать мою шкалу оценок BGG",
+                        ? "Скрыть шкалу оценок"
+                        : "Показать шкалу оценок",
                 );
             }
 
@@ -918,7 +923,12 @@ function getImageSrc(image) {
                 }
             }
 
-            const savedTheme = localStorage.getItem("reviews-theme");
+            let savedTheme = null;
+            try {
+                savedTheme = localStorage.getItem("reviews-theme");
+            } catch {
+                // Сайт продолжает работать, даже если хранилище заблокировано.
+            }
             applyTheme(savedTheme);
 
             themeBtn.addEventListener("click", () => {
@@ -930,8 +940,12 @@ function getImageSrc(image) {
                 const isDark = current === "dark" || (!current && prefersDark);
                 const next = isDark ? "light" : "dark";
 
-                localStorage.setItem("reviews-theme", next);
                 applyTheme(next);
+                try {
+                    localStorage.setItem("reviews-theme", next);
+                } catch {
+                    // Тема переключается и без сохранения в localStorage.
+                }
             });
 
             function sortCards(list, key) {
