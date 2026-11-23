@@ -7,10 +7,10 @@ plays: 1
 my_rating: 4
 image:
 title: "Roll Through the Ages: The Bronze Age"
-bgg_rank: 1100
+bgg_rank: 1103
 average_rating: 6.8
-year: 2008
+year: 2009
 bayes_rating: 6.6
-users_rated: 12409
+users_rated: 12421
 ---
 Упрощённая версия основной игры “Сквозь века”, выполненная в формате roll & write. Для своего времени (2008 год) — интересная задумка с компонентами из настоящего дерева. Однако сама игра слишком простая и быстро исчерпывается

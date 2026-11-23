@@ -7,11 +7,11 @@ plays: 2
 my_rating: 8.5
 image: images/games/nemesis-retaliation.jpg
 title: "Nemesis: Retaliation"
-bgg_rank: 224
+bgg_rank: 201
 average_rating: 8.6
 year: 2025
-bayes_rating: 7.3
-users_rated: 4535
+bayes_rating: 7.4
+users_rated: 4819
 ---
 Отличный фантастический данжен-кроулер с изучением комплекса, сражениями с пришельцами и элементами полукооператива. У игроков есть общая миссия, но при этом у каждого есть дополнительная тайная цель, что создаёт конфликт интересов.
 

@@ -6,12 +6,12 @@ date_added: 2026-11-12
 plays: 1
 my_rating: 7
 image: images/games/dice-throne-season-two-battle-chest.jpg
-title: 
-bgg_rank: 
-average_rating: 
-year: 
-bayes_rating: 
-users_rated: 
+title: "Earth Under Siege: Flashpoint"
+bgg_rank: 7208
+average_rating: 8.6
+year: 2024
+bayes_rating: 5.7
+users_rated: 191
 ---
 Попробовали пройти первую миссию. Игроки управляют отрядом оперативников, выполняющих задания против вторгшихся на Землю пришельцев. Основной упор сделан на скрытное проникновение, устранение противников и диверсии.
 

@@ -6,12 +6,12 @@ date_added: 2026-11-07
 plays: 1
 my_rating: 6
 image: "images/games/sword-and-sorcery-immortal-souls.jpg"
-title: 
-average_rating: 
-users_rated: 
-bayes_rating: 
-year: 
-bgg_rank: 
+title: "Sword & Sorcery: Immortal Souls"
+average_rating: 7.9
+users_rated: 5471
+bayes_rating: 7.0
+year: 2017
+bgg_rank: 565
 ---
 Фэнтезийный данжен-кроулер с сюжетной кампанией, развитием персонажей и сражениями с монстрами. На выбор представлено несколько героев с различными классами, уникальными навыками и снаряжением.
 

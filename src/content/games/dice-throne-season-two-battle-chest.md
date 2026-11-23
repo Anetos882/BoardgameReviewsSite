@@ -6,12 +6,12 @@ date_added: 2026-11-18
 plays: 1
 my_rating: 8
 image: images/games/dice-throne-season-two-battle-chest.jpg
-title: 
-bgg_rank: 
-average_rating: 
-year: 
-bayes_rating: 
-users_rated: 
+title: "Dice Throne: Season Two – Battle Chest"
+bgg_rank: 333
+average_rating: 8.0
+year: 2019
+bayes_rating: 7.2
+users_rated: 5627
 ---
 Дуэльная игра, в которой игроки бросают кубики, собирают определённые комбинации и активируют соответствующие способности своих героев. Дополнительно можно разыгрывать карты, позволяющие улучшать навыки, изменять значения кубиков и реагировать на действия соперника.
 

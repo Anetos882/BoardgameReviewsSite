@@ -8,10 +8,10 @@ my_rating: 8
 image: "images/games/ascension-10-year-anniversary-edition.jpg"
 title: "Ascension: Fourth Edition"
 average_rating: 7.8
-users_rated: 1290
-bayes_rating: 6.2
+users_rated: 1307
+bayes_rating: 6.3
 year: 2022
-bgg_rank: 2084
+bgg_rank: 2067
 ---
 Самый обычный колодострой, в котором игроки покупают карты, разыгрывают их и набирают победные очки. Очки можно получать за способности карт или просто за сами приобретённые карты: чем выше их стоимость, тем больше очков они приносят.
 

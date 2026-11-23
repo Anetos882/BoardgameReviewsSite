@@ -7,11 +7,11 @@ plays: 1
 my_rating: 7
 image: "images/games/world-of-warcraft-the-boardgame.jpg"
 title: "World of Warcraft: The Boardgame"
-bgg_rank: 1945
+bgg_rank: 1964
 average_rating: 6.7
 year: 2005
 bayes_rating: 6.3
-users_rated: 6056
+users_rated: 6061
 ---
 Мне игра сильно понравилась, ведь в ней есть соперничество между командами, сражения с разнообразными нейтральными монстрами, броски кубиков с возможностью изменения значений, разветвлённая система прокачки персонажа и даже наличие экипировки. Сама атмосфера мира Warcraft передана хорошо.
 
